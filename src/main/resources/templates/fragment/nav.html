@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="fragment-nav" class="top_menu">
+        <nav class="navbar">
+            <div class="logo_section">
+                <a class="navbar-brand" th:href="@{/}">Test</a>
+            </div>
+
+            <div class="nav_search_area my-2">
+                <form class="my-lg-0">
+                    <input id="nav_search_form" class="form-control mr-sm-2" type="search" placeholder="원하는 클래스가 있으신가요?" aria-label="Search">
+                    <button class="fa-solid fa-magnifying-glass"></button>
+                </form>
+            </div>
+            <div class="menu_btn_section">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa-solid fa-bars"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav nav-tabs mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" th:href="@{/index}">메인 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" th:href="@{/index2}">설정</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+</html>

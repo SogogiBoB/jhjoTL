@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.jhjoTL.mapper.MenuMapper">
+    <resultMap type="com.study.jhjoTL.model.Menu" id="menu">
+        <result property="gmenuId" column="gmenu_id"></result>
+        <result property="smenuId" column="smenu_id"></result>
+        <result property="name" column="name"></result>
+        <result property="smenuName" column="smenu_name"></result>
+    </resultMap>
+
+    <select id="selectSmenu" resultMap="menu">
+        SELECT
+            smenu_id
+            ,gm.gmenu_id
+            ,name
+            ,smenu_name
+        FROM
+            sub_menu sm
+        JOIN global_menu gm ON sm.gmenu_id = gm.gmenu_id;
+    </select>
+
+    <select id="selectGmenu" resultMap="menu">
+        SELECT
+            gmenu_id
+            ,name
+        FROM
+            global_menu
+    </select>
+</mapper>

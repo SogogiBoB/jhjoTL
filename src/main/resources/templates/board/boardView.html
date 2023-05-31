@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="board/layout/basic">
+	<th:block layout:fragment="title">
+		<title>상세보기</title>
+	</th:block>
+	<th:block layout:fragment="content">
+		<div>
+			<div th:object="${item}">
+				<div class="detail-header">
+					<div class="dh-content">
+						<span class="dh-label">제목</span>
+						<span th:text="*{title}"></span>
+					</div>
+					<div class="dh-content">
+						<span class="dh-label">작성자</span>
+						<span th:text="*{mName}"></span>
+					</div>
+					<div class="dh-content">
+						<span class="dh-label">작성일</span>
+						<span th:text="*{#calendars.format( frPnttm, 'yyyy-MM-dd' ) }"></span>
+					</div>
+				</div>
+				<div class="inner-content">
+					<p th:text="*{content}"></p>
+				</div>
+				
+				
+				<div class="btn-box">
+					<a th:href="@{/board/regist.do ( id=*{id} )}" class="btn btn-sm btn-primary">변경</a>
+					<a th:href="@{/board/deleteboard.do ( id=*{id} )}" class="btn btn-sm btn-danger">삭제</a>
+					<a th:href="@{/selectList.do}" class="btn btn-sm btn-outline-secondary">목록</a>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</html>
