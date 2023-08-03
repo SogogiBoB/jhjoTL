@@ -119,5 +119,5 @@ thead, tbody { text-align: center;}
 }
 
 .displayBlock {
-    display: block;
+    display: block !important;
 }

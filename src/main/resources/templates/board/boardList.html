@@ -4,10 +4,6 @@
 		<title>Board 목록</title>
 	</th:block>
 
-	<th:block layout:fragment="addiJs">
-		<script src="/js/board.js"></script>
-	</th:block>
-
 	<th:block layout:fragment="content">
 		<table class="table my-5">
 			<thead>
@@ -22,7 +18,7 @@
 			<tbody>
 				<tr th:each="row: ${result}">
 					<td th:text="${row.id}"></td>
-					<td><a th:href="@{/board/view.do( id=${row.id} )}" th:text="${row.title}"></a></td>
+					<td><a th:href="@{/board/view( id=${row.id} )}" th:text="${row.title}"></a></td>
 					<td th:text="${#calendars.format( row.frstRegistDate, 'yyyy-MM-dd HH:mm' ) }"></td>
 					<td th:if="${row.updateDate != null}" th:text="${#calendars.format( row.updateDate, 'yyyy-MM-dd HH:mm' ) }"></td>
 					<td th:unless="${row.updateDate != null}">-</td>
@@ -32,8 +28,8 @@
 			<tfoot class="btn-box">
 				<tr>
 					<td colspan="5" class="btn_section">
-						<a th:href="@{/board/regist.do}" class="btn btn-sm btn-primary">등록</a>
-						<i class="fa-solid fa-circle-question"></i>
+						<a th:href="@{/board/registForm}" class="btn btn-sm btn-primary">등록</a>
+						<i class="fa-solid fa-circle-question quesPopupBtn"></i>
 						<div class="smPopupBox">
 							<div class="smPopupBoxContent">
 								<p th:text="qwertyqwertyqwertyqwertyqwerty"></p>
@@ -44,5 +40,9 @@
 				</tr>
 			</tfoot>
 		</table>
+	</th:block>
+
+	<th:block layout:fragment="addiJs">
+		<script src="/js/board.js"></script>
 	</th:block>
 </html>

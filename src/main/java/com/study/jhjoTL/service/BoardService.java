@@ -15,4 +15,8 @@ public class BoardService {
     public List<Board> selectList() {
         return boardRepository.findAll();
     }
+
+    public Board selectBoard(int id) {
+        return boardRepository.findById(id).get();
+    }
 }
